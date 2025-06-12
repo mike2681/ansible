@@ -1,0 +1,20 @@
+#- name:  Inventory aws
+
+- name: Return motd to registered var
+  shell: 
+     #cmd: ansible-inventory -i /home/ec2-user/aws_ec2.yaml --list
+      cmd: ansible-playbook
+  args:
+        executable: /bin/bash 
+
+  register: cat
+- debug: var=cat.stdout_lines
+  #ansible.builtin.command: ansible-inventory -i /home/ec2-user/aws_ec2.yaml --list
+
+    #cDmd: uname -a
+ # args:
+#      executable: /bin/bash 
+ # register: var
+  #- debug: ansible-inventory=var.stdout_lines
+
+      
